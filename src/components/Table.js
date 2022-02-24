@@ -58,7 +58,7 @@ export default function Table() {
               <td>{climate}</td>
               <td>{gravity}</td>
               <td>{terrain}</td>
-              <td>{surfaceWater}</td>
+              <td>{surfaceWater }</td>
               <td>{population}</td>
               <td>{films}</td>
               <td>{created}</td>
