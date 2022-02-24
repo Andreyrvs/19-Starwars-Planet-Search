@@ -37,13 +37,13 @@ export default function Table() {
         <tbody>
           {data.map(({
             name,
-            rotation_period,
-            orbital_period,
+            rotation_period: rotationPeriod,
+            orbital_period: orbitalPeriod,
             diameter,
             climate,
             gravity,
             terrain,
-            surface_water,
+            surface_water: surfaceWater,
             population,
             films,
             created,
@@ -52,13 +52,13 @@ export default function Table() {
           }) => (
             <tr key={ name }>
               <td>{name}</td>
-              <td>{rotation_period}</td>
-              <td>{orbital_period}</td>
+              <td>{rotationPeriod}</td>
+              <td>{orbitalPeriod}</td>
               <td>{diameter}</td>
               <td>{climate}</td>
               <td>{gravity}</td>
               <td>{terrain}</td>
-              <td>{surface_water}</td>
+              <td>{surfaceWater}</td>
               <td>{population}</td>
               <td>{films}</td>
               <td>{created}</td>

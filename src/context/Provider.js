@@ -6,9 +6,12 @@ import TableContext from './TableContext';
 function Provider({ children }) {
   const [data, setData] = useState([]);
 
-  useEffect(async () => {
-    const data = await fetchAPI();
-    setData(data);
+  useEffect(() => {
+    async function api() {
+      const data = await fetchAPI();
+      setData(data);
+    }
+    api();
   }, []);
   console.log(data);
   return (
