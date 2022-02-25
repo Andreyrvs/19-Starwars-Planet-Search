@@ -24,6 +24,7 @@ function Provider({ children }) {
     async function api() {
       const result = await fetchAPI();
       setData(result);
+      console.log(result);
     }
     api();
   }, []);

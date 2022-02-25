@@ -8,9 +8,11 @@ function Input({
   handleChange,
   filterByName,
   type,
+  labelName,
 }) {
   return (
     <label htmlFor={ elementId }>
+      {labelName}
       <input
         name={ name }
         value={ filterByName }
@@ -24,12 +26,13 @@ function Input({
 }
 
 Input.propTypes = {
-  // inputValue: PropTypes.string,
   name: PropTypes.string,
   elementId: PropTypes.string,
   dataTest: PropTypes.string,
-  // handleChange: PropTypes.func,
+  handleChange: PropTypes.func,
+  filterByName: PropTypes.string,
   type: PropTypes.string,
+  labelName: PropTypes.string,
 }.isRequire;
 
 export default Input;

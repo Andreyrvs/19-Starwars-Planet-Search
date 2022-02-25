@@ -6,7 +6,7 @@ import header from '../data';
 export default function Table() {
   const { planets, filterByName, setFilterByName } = useContext(TableContext);
 
-  console.log(planets);
+  // console.log(planets);
 
   return (
     <div>
