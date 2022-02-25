@@ -6,17 +6,17 @@ import TableContext from './TableContext';
 function Provider({ children }) {
   const [data, setData] = useState([]);
   const [filterByName, setFilterByName] = useState({ name: '' });
-  const [planetName, setPlanetName] = useState([]);
+  const [planets, setPlanets] = useState([]);
 
   useEffect(() => {
     const nameToLowerCase = filterByName.name.toLowerCase();
 
     if (nameToLowerCase === '') {
-      setPlanetName(data);
+      setPlanets(data);
     } else {
       const filter = data
         .filter((planeta) => (planeta.name.toLowerCase().includes(nameToLowerCase)));
-      setPlanetName(filter);
+      setPlanets(filter);
     }
   }, [filterByName.name, data]);
 
@@ -29,7 +29,7 @@ function Provider({ children }) {
   }, []);
 
   const value = {
-    data, filterByName, setFilterByName, planetName,
+    data, filterByName, setFilterByName, planets,
   };
 
   return (

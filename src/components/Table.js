@@ -19,9 +19,9 @@ const header = [
 ];
 
 export default function Table() {
-  const { planetName, filterByName, setFilterByName } = useContext(TableContext);
+  const { planets, filterByName, setFilterByName } = useContext(TableContext);
 
-  console.log(planetName);
+  console.log(planets);
 
   return (
     <div>
@@ -44,7 +44,7 @@ export default function Table() {
           </tr>
         </thead>
         <tbody>
-          {planetName.map(({
+          {planets.map(({
             name,
             rotation_period: rotationPeriod,
             orbital_period: orbitalPeriod,
