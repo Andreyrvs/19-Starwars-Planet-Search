@@ -1,22 +1,7 @@
 import React, { useContext } from 'react';
 import TableContext from '../context/TableContext';
 import Input from './Input';
-
-const header = [
-  'name',
-  'rotation_period',
-  'orbital_period',
-  'diameter',
-  'climate',
-  'gravity',
-  'terrain',
-  'surface_water',
-  'population',
-  'films',
-  'created',
-  'edited',
-  'url',
-];
+import header from '../data';
 
 export default function Table() {
   const { planets, filterByName, setFilterByName } = useContext(TableContext);
