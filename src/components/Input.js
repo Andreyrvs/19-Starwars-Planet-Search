@@ -11,9 +11,10 @@ function Input({
   labelName,
 }) {
   return (
-    <label htmlFor={ elementId }>
+    <label htmlFor={ elementId } className="form-label">
       {labelName}
       <input
+        className="form-control"
         name={ name }
         value={ filterByName }
         onChange={ handleChange }

@@ -16,9 +16,10 @@ export default function Table() {
         handleChange={ ({ target }) => setFilterByName({ name: target.value }) }
         elementId="filter-name"
         dataTest="name-filter"
-        type="input"
+        type="text"
+        labelName="Planet Name"
       />
-      <table>
+      <table className="table table-bordered table-dark table-striped">
         <thead>
           <tr>
             {header.map((items) => (
@@ -54,7 +55,7 @@ export default function Table() {
               <td>{terrain}</td>
               <td>{surfaceWater }</td>
               <td>{population}</td>
-              <td>{films}</td>
+              <td style={ { overflowY: 'scroll' } }>{films}</td>
               <td>{created}</td>
               <td>{edited}</td>
               <td>{url}</td>
