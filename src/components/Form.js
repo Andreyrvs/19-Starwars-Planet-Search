@@ -18,15 +18,36 @@ export default function Form() {
           type="text"
           labelName="Planet Name"
         />
-        <select className="form-select" data-testid="column-filter">
-          {header.map((item) => (
-            <option key={ item }>{item}</option>
-          ))}
-        </select>
 
-        {/* <select className="form-select" data-testid="column-filter">
-          <option>batatas</option>
-        </select> */}
+        <label htmlFor="filter-column">
+          coluna
+          <select
+            data-testid="column-filter"
+            className="form-select"
+            id="filter-column"
+          >
+            {header.map((item) => (
+              <option key={ item }>{item}</option>
+            ))}
+          </select>
+        </label>
+        <label htmlFor="filter-comparison">
+          Operador
+          <select
+            data-testid="comparison-filter"
+            className="form-select"
+            id="filter-comparison"
+          >
+            <option>maior que</option>
+            <option>menor que</option>
+            <option>igual a</option>
+          </select>
+        </label>
+
+        <Input
+          dataTest="value-filter"
+          type="text"
+        />
       </fieldset>
     </form>
   );
