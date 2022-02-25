@@ -13,6 +13,14 @@ function App() {
       <main>
         <Table />
       </main>
+      <footer>
+        <span className="text-muted">
+          &copy;
+          <a className="link-success" href="https://www.linkedin.com/in/andreyrvs/">
+            2021  Andrey R. Visniewski
+          </a>
+        </span>
+      </footer>
     </Provider>
   );
 }
