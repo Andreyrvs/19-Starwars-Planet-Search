@@ -5,18 +5,36 @@ import TableContext from './TableContext';
 
 function Provider({ children }) {
   const [data, setData] = useState([]);
+  const [filterByName, setFilterByName] = useState({ name: '' });
+  const [planetName, setPlanetName] = useState([]);
+
+  useEffect(() => {
+    const nameToLowerCase = filterByName.name.toLowerCase();
+
+    if (nameToLowerCase === '') {
+      setPlanetName(data);
+    } else {
+      const filter = data
+        .filter((planeta) => (planeta.name.toLowerCase().includes(nameToLowerCase)));
+      setPlanetName(filter);
+    }
+  }, [filterByName.name, data]);
 
   useEffect(() => {
     async function api() {
-      const data = await fetchAPI();
-      setData(data);
+      const result = await fetchAPI();
+      setData(result);
     }
     api();
   }, []);
-  console.log(data);
+
+  const value = {
+    data, filterByName, setFilterByName, planetName,
+  };
+
   return (
     <main>
-      <TableContext.Provider value={ { data } }>
+      <TableContext.Provider value={ value }>
         {children}
       </TableContext.Provider>
     </main>

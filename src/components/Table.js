@@ -1,5 +1,6 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import TableContext from '../context/TableContext';
+import Input from './Input';
 
 const header = [
   'name',
@@ -18,12 +19,20 @@ const header = [
 ];
 
 export default function Table() {
-  const { data } = useContext(TableContext);
+  const { planetName, filterByName, setFilterByName } = useContext(TableContext);
 
-  // console.log(data);
-  useEffect(() => {}, []);
+  console.log(planetName);
+
   return (
     <div>
+      <Input
+        inputValue={ filterByName.name }
+        name="filterByName"
+        handleChange={ ({ target }) => setFilterByName({ name: target.value }) }
+        elementId="filter-name"
+        dataTest="name-filter"
+        type="input"
+      />
       <table>
         <thead>
           <tr>
@@ -35,7 +44,7 @@ export default function Table() {
           </tr>
         </thead>
         <tbody>
-          {data.map(({
+          {planetName.map(({
             name,
             rotation_period: rotationPeriod,
             orbital_period: orbitalPeriod,

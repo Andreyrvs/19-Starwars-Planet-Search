@@ -4,7 +4,6 @@ const fetchAPI = async () => {
   try {
     const response = await fetch(URL_API);
     const dataJson = await response.json();
-    // console.log(data.results);
     const data = dataJson.results;
     return data;
   } catch (error) {
