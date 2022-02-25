@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import fetchAPI from '../services';
-import TableContext from './TableContext';
+import Context from './Context';
 
 function Provider({ children }) {
   const [data, setData] = useState([]);
@@ -24,7 +24,6 @@ function Provider({ children }) {
     async function api() {
       const result = await fetchAPI();
       setData(result);
-      console.log(result);
     }
     api();
   }, []);
@@ -34,11 +33,9 @@ function Provider({ children }) {
   };
 
   return (
-    <main>
-      <TableContext.Provider value={ value }>
-        {children}
-      </TableContext.Provider>
-    </main>
+    <Context.Provider value={ value }>
+      {children}
+    </Context.Provider>
   );
 }
 
