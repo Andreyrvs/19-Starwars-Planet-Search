@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import Context from '../context/Context';
 import Input from './Input';
-import header from '../data';
+import { operador } from '../data';
 
 export default function Form() {
   const {
@@ -10,8 +10,6 @@ export default function Form() {
     filterByNumericValues,
     setFilterByNumericValues,
   } = useContext(Context);
-
-  console.log(filterByNumericValues);
 
   return (
     <form>
@@ -37,7 +35,7 @@ export default function Form() {
               ({ target }) => setFilterByNumericValues({ column: target.value })
             }
           >
-            {header.map((item) => (
+            {operador.map((item) => (
               <option key={ item }>{item}</option>
             ))}
           </select>
@@ -75,6 +73,7 @@ export default function Form() {
           className="btn btn-success m-1"
           type="button"
           data-testid="button-filter"
+          onClick={ () => setFilterByNumericValues() }
         >
           Filtrar
         </button>

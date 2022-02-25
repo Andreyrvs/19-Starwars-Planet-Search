@@ -7,7 +7,6 @@ function Provider({ children }) {
   const [data, setData] = useState([]);
   const [filterByName, setFilterByName] = useState({ name: '' });
   const [planets, setPlanets] = useState([]);
-  console.log(planets);
   const [filterByNumericValues, setFilterByNumericValues] = useState(
     { column: '',
       comparison: '',
@@ -34,6 +33,20 @@ function Provider({ children }) {
       setPlanets(filter);
     }
   }, [filterByName.name, data]);
+
+  data.filter((planet) => (
+    console.log(planet[filterByNumericValues.column])
+  ));
+
+  useEffect(() => {
+    if (filterByNumericValues.comparison === 'maior que') {
+      const column = data.filter((planet) => (
+        planet[filterByNumericValues.column] > filterByNumericValues.value
+         && planet[filterByNumericValues.column] !== 'unknown'
+      ));
+      setPlanets(column);
+    }
+  }, [filterByNumericValues, data]);
 
   const value = {
     data,

@@ -14,4 +14,12 @@ const header = [
   'url',
 ];
 
+export const operador = [
+  'population',
+  'orbital_period',
+  'diameter',
+  'rotation_period',
+  'surface_water',
+];
+
 export default header;
