@@ -11,7 +11,7 @@ function Input({
   labelName,
 }) {
   return (
-    <label htmlFor={ elementId } className="form-label">
+    <label htmlFor={ elementId } className="form-label m-1">
       {labelName}
       <input
         className="form-control"

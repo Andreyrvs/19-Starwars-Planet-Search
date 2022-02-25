@@ -7,6 +7,21 @@ function Provider({ children }) {
   const [data, setData] = useState([]);
   const [filterByName, setFilterByName] = useState({ name: '' });
   const [planets, setPlanets] = useState([]);
+  console.log(planets);
+  const [filterByNumericValues, setFilterByNumericValues] = useState(
+    { column: '',
+      comparison: '',
+      value: '',
+    },
+  );
+
+  useEffect(() => {
+    async function api() {
+      const result = await fetchAPI();
+      setData(result);
+    }
+    api();
+  }, []);
 
   useEffect(() => {
     const nameToLowerCase = filterByName.name.toLowerCase();
@@ -20,16 +35,13 @@ function Provider({ children }) {
     }
   }, [filterByName.name, data]);
 
-  useEffect(() => {
-    async function api() {
-      const result = await fetchAPI();
-      setData(result);
-    }
-    api();
-  }, []);
-
   const value = {
-    data, filterByName, setFilterByName, planets,
+    data,
+    filterByName,
+    setFilterByName,
+    planets,
+    filterByNumericValues,
+    setFilterByNumericValues,
   };
 
   return (
