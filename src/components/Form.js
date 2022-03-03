@@ -7,7 +7,7 @@ export default function Form() {
   const {
     filterByName,
     setFilterByName,
-    // filterByNumericValues,
+    filterByNumericValues,
     setFilterByNumericValues,
   } = useContext(Context);
 
@@ -15,13 +15,13 @@ export default function Form() {
   const [comparison, setcomparison] = useState('maior que');
   const [value, setValue] = useState('0');
 
-  const handleClick = () => (
-    {
-      column,
-      comparison,
-      value,
-    }
-  );
+  // const handleClick = () => (
+  //   {
+  //     column,
+  //     comparison,
+  //     value,
+  //   }
+  // );
 
   return (
     <form>
@@ -86,7 +86,13 @@ export default function Form() {
           className="btn btn-success m-1"
           type="button"
           data-testid="button-filter"
-          onClick={ () => { setFilterByNumericValues(handleClick); } }
+          onClick={ () => {
+            setFilterByNumericValues([...filterByNumericValues, {
+              column,
+              comparison,
+              value,
+            }]);
+          } }
         >
           Filtrar
         </button>
