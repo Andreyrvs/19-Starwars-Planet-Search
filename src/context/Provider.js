@@ -33,19 +33,19 @@ function Provider({ children }) {
 
     if (comparison === 'maior que') {
       const maior = data.filter((planet) => (
-        planet[column] > Number(value)
+        Number(planet[column]) > Number(value)
         && planet[column] !== 'unknown'
       ));
       setPlanets(maior);
     } else if (comparison === 'menor que') {
       const menor = data.filter((planet) => (
-        planet[column] < Number(value)
+        Number(planet[column]) < Number(value)
         && planet[column] !== 'unknown'
       ));
       setPlanets(menor);
     } else if (comparison === 'igual a') {
       const igual = data.filter((planet) => (
-        planet[column].includes(Number(value))
+        Number(planet[column]) === (Number(value))
         && planet[column] !== 'unknown'
       ));
       setPlanets(igual);
