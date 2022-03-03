@@ -7,13 +7,7 @@ function Provider({ children }) {
   const [data, setData] = useState([]);
   const [filterByName, setFilterByName] = useState({ name: '' });
   const [planets, setPlanets] = useState([]);
-  const [filterByNumericValues, setFilterByNumericValues] = useState(
-    [{ column: 'population',
-      comparison: 'maior que',
-      value: '',
-    }],
-  );
-  console.log('filterbyNumValue', filterByNumericValues);
+  const [filterByNumericValues, setFilterByNumericValues] = useState([]);
   useEffect(() => {
     async function api() {
       const result = await fetchAPI();
@@ -39,22 +33,20 @@ function Provider({ children }) {
 
     if (comparison === 'maior que') {
       const maior = data.filter((planet) => (
-        (Number(planet[column]) > Number(value)
-        && planet[column] !== 'unknown')
+        planet[column] > Number(value)
+        && planet[column] !== 'unknown'
       ));
       setPlanets(maior);
-    }
-    if (comparison === 'menor que') {
+    } else if (comparison === 'menor que') {
       const menor = data.filter((planet) => (
-        (Number(planet[column]) < Number(value)
-        && planet[column] !== 'unknown')
+        planet[column] < Number(value)
+        && planet[column] !== 'unknown'
       ));
       setPlanets(menor);
-    }
-    if (comparison === 'iqual a') {
+    } else if (comparison === 'igual a') {
       const igual = data.filter((planet) => (
-        (Number(planet[column]) < Number(value)
-        && planet[column] !== 'unknown')
+        planet[column].includes(Number(value))
+        && planet[column] !== 'unknown'
       ));
       setPlanets(igual);
     }

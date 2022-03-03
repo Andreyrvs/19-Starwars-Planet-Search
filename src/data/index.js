@@ -14,7 +14,7 @@ const header = [
   'url',
 ];
 
-export const operador = [
+export const operatorDropdown = [
   'population',
   'orbital_period',
   'diameter',

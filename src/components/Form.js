@@ -1,15 +1,27 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Context from '../context/Context';
 import Input from './Input';
-import { operador } from '../data';
+import { operatorDropdown } from '../data';
 
 export default function Form() {
   const {
     filterByName,
     setFilterByName,
-    filterByNumericValues,
+    // filterByNumericValues,
     setFilterByNumericValues,
   } = useContext(Context);
+
+  const [column, setColumn] = useState('population');
+  const [comparison, setcomparison] = useState('maior que');
+  const [value, setValue] = useState('0');
+
+  const handleClick = () => (
+    {
+      column,
+      comparison,
+      value,
+    }
+  );
 
   return (
     <form>
@@ -30,13 +42,13 @@ export default function Form() {
             data-testid="column-filter"
             className="form-select"
             id="filter-column"
-            value={ filterByNumericValues.column }
+            value={ column }
             onChange={
-              ({ target }) => setFilterByNumericValues({ column: target.value })
+              ({ target }) => setColumn(target.value)
             }
           >
-            {operador.map((item) => (
-              <option key={ item }>{item}</option>
+            {operatorDropdown.map((item) => (
+              <option key={ item } value={ item }>{item}</option>
             ))}
           </select>
         </label>
@@ -47,14 +59,14 @@ export default function Form() {
             data-testid="comparison-filter"
             className="form-select"
             id="filter-comparison"
-            value={ filterByNumericValues.comparison }
+            value={ comparison }
             onChange={
-              ({ target }) => setFilterByNumericValues({ comparison: target.value })
+              ({ target }) => setcomparison(target.value)
             }
           >
-            <option>maior que</option>
-            <option>menor que</option>
-            <option>igual a</option>
+            <option value="maior que">maior que</option>
+            <option value="menor que">menor que</option>
+            <option value="igual a">igual a</option>
           </select>
         </label>
 
@@ -62,10 +74,11 @@ export default function Form() {
           dataTest="value-filter"
           type="number"
           labelName="Value"
-          name="filterByNumericValues.value"
-          value={ filterByNumericValues.value || 0 }
+          elementId="filter-value"
+          name="value"
+          inputValue={ value }
           handleChange={
-            ({ target }) => setFilterByNumericValues({ value: target.value })
+            ({ target }) => setValue(target.value)
           }
         />
 
@@ -73,7 +86,7 @@ export default function Form() {
           className="btn btn-success m-1"
           type="button"
           data-testid="button-filter"
-          onClick={ () => {} }
+          onClick={ () => { setFilterByNumericValues(handleClick); } }
         >
           Filtrar
         </button>

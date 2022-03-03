@@ -6,7 +6,7 @@ function Input({
   elementId,
   dataTest,
   handleChange,
-  filterByName,
+  inputValue,
   type,
   labelName,
 }) {
@@ -16,7 +16,7 @@ function Input({
       <input
         className="form-control"
         name={ name }
-        value={ filterByName }
+        value={ inputValue }
         onChange={ handleChange }
         id={ elementId }
         data-testid={ dataTest }
