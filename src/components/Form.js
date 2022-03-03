@@ -14,14 +14,7 @@ export default function Form() {
   const [column, setColumn] = useState('population');
   const [comparison, setcomparison] = useState('maior que');
   const [value, setValue] = useState('0');
-
-  // const handleClick = () => (
-  //   {
-  //     column,
-  //     comparison,
-  //     value,
-  //   }
-  // );
+  const [columnDropdown, setColumnDropdown] = useState(operatorDropdown);
 
   return (
     <form>
@@ -47,9 +40,12 @@ export default function Form() {
               ({ target }) => setColumn(target.value)
             }
           >
-            {operatorDropdown.map((item) => (
-              <option key={ item } value={ item }>{item}</option>
-            ))}
+            {
+              columnDropdown
+                .map((item) => (
+                  <option key={ item } value={ item }>{item}</option>
+                ))
+            }
           </select>
         </label>
 
@@ -97,6 +93,11 @@ export default function Form() {
           Filtrar
         </button>
       </fieldset>
+      <section>
+        {filterByNumericValues.map(({ column, comparison, value }, index) => (
+          <span style={ { display: 'flex' } } key={ index }>{`${column} ${comparison} ${value} `}</span>
+        ))}
+      </section>
     </form>
   );
 }

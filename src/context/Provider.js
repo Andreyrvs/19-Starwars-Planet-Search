@@ -9,8 +9,6 @@ function Provider({ children }) {
   const [planets, setPlanets] = useState([]);
   const [filterByNumericValues, setFilterByNumericValues] = useState([]);
 
-  console.log('Provider', filterByNumericValues);
-
   useEffect(() => {
     async function api() {
       const result = await fetchAPI();
@@ -32,30 +30,31 @@ function Provider({ children }) {
   }, [filterByName.name, data]);
 
   useEffect(() => {
+    setPlanets(data);
     filterByNumericValues.forEach((item) => {
       const { comparison, value, column } = item;
 
       if (comparison === 'maior que') {
-        const maior = data.filter((planet) => (
+        const maior = planets.filter((planet) => (
           Number(planet[column]) > Number(value)
           && planet[column] !== 'unknown'
         ));
         setPlanets(maior);
       } else if (comparison === 'menor que') {
-        const menor = data.filter((planet) => (
+        const menor = planets.filter((planet) => (
           Number(planet[column]) < Number(value)
           && planet[column] !== 'unknown'
         ));
         setPlanets(menor);
       } else if (comparison === 'igual a') {
-        const igual = data.filter((planet) => (
+        const igual = planets.filter((planet) => (
           Number(planet[column]) === (Number(value))
           && planet[column] !== 'unknown'
         ));
         setPlanets(igual);
       }
     });
-  }, [filterByNumericValues, data]);
+  }, [data, filterByNumericValues, planets]);
 
   const value = {
     data,
