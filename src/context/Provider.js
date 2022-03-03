@@ -8,12 +8,12 @@ function Provider({ children }) {
   const [filterByName, setFilterByName] = useState({ name: '' });
   const [planets, setPlanets] = useState([]);
   const [filterByNumericValues, setFilterByNumericValues] = useState(
-    { column: '',
-      comparison: '',
+    [{ column: 'population',
+      comparison: 'maior que',
       value: '',
-    },
+    }],
   );
-
+  console.log('filterbyNumValue', filterByNumericValues);
   useEffect(() => {
     async function api() {
       const result = await fetchAPI();
@@ -34,17 +34,29 @@ function Provider({ children }) {
     }
   }, [filterByName.name, data]);
 
-  data.filter((planet) => (
-    console.log(planet[filterByNumericValues.column])
-  ));
-
   useEffect(() => {
-    if (filterByNumericValues.comparison === 'maior que') {
-      const column = data.filter((planet) => (
-        planet[filterByNumericValues.column] > filterByNumericValues.value
-         && planet[filterByNumericValues.column] !== 'unknown'
+    const { comparison, value, column } = filterByNumericValues;
+
+    if (comparison === 'maior que') {
+      const maior = data.filter((planet) => (
+        (Number(planet[column]) > Number(value)
+        && planet[column] !== 'unknown')
       ));
-      setPlanets(column);
+      setPlanets(maior);
+    }
+    if (comparison === 'menor que') {
+      const menor = data.filter((planet) => (
+        (Number(planet[column]) < Number(value)
+        && planet[column] !== 'unknown')
+      ));
+      setPlanets(menor);
+    }
+    if (comparison === 'iqual a') {
+      const igual = data.filter((planet) => (
+        (Number(planet[column]) < Number(value)
+        && planet[column] !== 'unknown')
+      ));
+      setPlanets(igual);
     }
   }, [filterByNumericValues, data]);
 

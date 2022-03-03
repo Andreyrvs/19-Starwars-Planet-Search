@@ -63,7 +63,7 @@ export default function Form() {
           type="number"
           labelName="Value"
           name="filterByNumericValues.value"
-          value={ filterByNumericValues.value }
+          value={ filterByNumericValues.value || 0 }
           handleChange={
             ({ target }) => setFilterByNumericValues({ value: target.value })
           }
@@ -73,7 +73,7 @@ export default function Form() {
           className="btn btn-success m-1"
           type="button"
           data-testid="button-filter"
-          onClick={ () => setFilterByNumericValues() }
+          onClick={ () => {} }
         >
           Filtrar
         </button>
