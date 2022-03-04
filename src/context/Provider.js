@@ -54,7 +54,7 @@ function Provider({ children }) {
         setPlanets(igual);
       }
     });
-  }, [filterByNumericValues, data, planets]);
+  }, [filterByNumericValues]);
 
   const value = {
     data,
