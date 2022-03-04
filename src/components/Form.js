@@ -16,6 +16,7 @@ export default function Form() {
   const [value, setValue] = useState('0');
   const [columnDropdown, setColumnDropdown] = useState(operatorDropdown);
 
+  // console.log(setColumnDropdown);
   return (
     <form>
       <fieldset>
@@ -41,10 +42,9 @@ export default function Form() {
             }
           >
             {
-              columnDropdown
-                .map((item) => (
-                  <option key={ item } value={ item }>{item}</option>
-                ))
+              columnDropdown.map((item, index) => (
+                <option key={ index } value={ item }>{item}</option>
+              ))
             }
           </select>
         </label>
@@ -94,8 +94,14 @@ export default function Form() {
         </button>
       </fieldset>
       <section>
-        {filterByNumericValues.map(({ column, comparison, value }, index) => (
-          <span style={ { display: 'flex' } } key={ index }>{`${column} ${comparison} ${value} `}</span>
+        {filterByNumericValues.map((element, index) => (
+          <span
+            style={ { display: 'flex' } }
+            key={ index }
+          >
+            {`${element.column} ${element.comparison} ${element.value} `}
+
+          </span>
         ))}
       </section>
     </form>

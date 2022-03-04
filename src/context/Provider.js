@@ -35,26 +35,26 @@ function Provider({ children }) {
       const { comparison, value, column } = item;
 
       if (comparison === 'maior que') {
-        const maior = planets.filter((planet) => (
+        const maior = data.filter((planet) => (
           Number(planet[column]) > Number(value)
           && planet[column] !== 'unknown'
         ));
         setPlanets(maior);
       } else if (comparison === 'menor que') {
-        const menor = planets.filter((planet) => (
+        const menor = data.filter((planet) => (
           Number(planet[column]) < Number(value)
           && planet[column] !== 'unknown'
         ));
         setPlanets(menor);
       } else if (comparison === 'igual a') {
-        const igual = planets.filter((planet) => (
+        const igual = data.filter((planet) => (
           Number(planet[column]) === (Number(value))
           && planet[column] !== 'unknown'
         ));
         setPlanets(igual);
       }
     });
-  }, [data, filterByNumericValues, planets]);
+  }, [filterByNumericValues, data]);
 
   const value = {
     data,
