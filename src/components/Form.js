@@ -14,8 +14,8 @@ export default function Form() {
   const [column, setColumn] = useState('population');
   const [comparison, setcomparison] = useState('maior que');
   const [value, setValue] = useState('0');
-  const [columnDropdown, setColumnDropdown] = useState(operatorDropdown);
-
+  // const [columnDropdown, setColumnDropdown] = useState(operatorDropdown);
+  // setColumnDropdown(operatorDropdown);
   // console.log(setColumnDropdown);
   return (
     <form>
@@ -42,7 +42,7 @@ export default function Form() {
             }
           >
             {
-              columnDropdown.map((item, index) => (
+              operatorDropdown.map((item, index) => (
                 <option key={ index } value={ item }>{item}</option>
               ))
             }
