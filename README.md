@@ -9,7 +9,7 @@ Este projeto é uma lista de filtros de planetas do universo Star Wars utiliza C
 * Filtros:
 </br>É possivel filtrar pelo nome do planeta e caracteristicas do planeta: População, período orbital, diâmetro, período de rotação, superfície da água.
 
-* É possivel unir filtros ex:
+* É possivel unir filtros:
 </br> `rbital_period | maior que | 400`
 
 ![filtro](./Aplicacao-filtro.png)
