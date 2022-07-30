@@ -9,7 +9,7 @@ Este projeto é uma lista de filtros de planetas do universo Star Wars utiliza C
 ## Técnologias usadas
 
 Front-end:
-> Desenvolvido usando: React, React Hooks, React Context API, React Router, Bootstrap
+> Desenvolvido usando: React, React Hooks, React Context API, Bootstrap
 
 ## Instalando Dependências
 
