@@ -16,7 +16,7 @@ function App() {
       <footer>
         <span className="text-muted">
           &copy;
-          <a className="link-success" href="https://www.linkedin.com/in/andreyrvs/">
+          <a className="link-success" href="https://www.linkedin.com/in/andreyrvisniewski/">
             2021  Andrey R. Visniewski
           </a>
         </span>

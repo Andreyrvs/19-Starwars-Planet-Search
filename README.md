@@ -1,16 +1,42 @@
-# 🚧 README em construção 🚧
+# Starwars Planet Search
 
-<!-- Olá, Tryber!
+![Imagem da carteira](./Aplicacao.png)
 
-Esse é apenas um arquivo inicial para o README do seu projeto.
+## Contexto
 
-É essencial que você preencha esse documento por conta própria, ok?
+Este projeto trata-se de
 
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
+## Técnologias usadas
 
-⚠️ IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
+Front-end:
+> Desenvolvido usando: React, React Hooks, React Context, React Router, Bootstrap
 
--->
+## Instalando Dependências
+
+* clone o repositorio
+
+  ```bash
+    git clone git@github.com:Andreyrvs/starwars-planet-search.git
+  ```
+
+* instale as dependências:
+
+  ```bash
+    npm install
+  ```
+
+## Executando aplicação
+
+* Para rodar o front-end:
+
+  ```bash
+    npm start
+  ```
+
+## Executando Testes
+
+* Para rodar os testes de linter:
+
+  ```bash
+    npm run lint
+  ```
