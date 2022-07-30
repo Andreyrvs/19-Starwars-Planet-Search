@@ -4,7 +4,15 @@
 
 ## Contexto
 
-Este projeto é uma lista de filtros de planetas do universo Star Wars utiliza Context API e Hooks para controlar estados globais
+Este projeto é uma lista de filtros de planetas do universo Star Wars utiliza Context API e Hooks para controlar estados globais </br>
+
+* Filtros:
+</br>É possivel filtrar pelo nome do planeta e caracteristicas do planeta: População, período orbital, diâmetro, período de rotação, superfície da água.
+
+* É possivel unir filtros ex:
+</br> `rbital_period | maior que | 400`
+
+![filtro](./Aplicacao-filtro.png)
 
 ## Técnologias usadas
 
